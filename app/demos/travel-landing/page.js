@@ -18,7 +18,7 @@ export default async function TravelLanding({}) {
   const message = completion.data.choices[0].message.content;
   return (
     <main className={styles.main}>
-      <LandingTemplate completion={message} />
+        <LandingTemplate completion={message} />
     </main>
   )
 }

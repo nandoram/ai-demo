@@ -1,14 +1,18 @@
 'use client'
 import styles from './page.module.css'
-import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { useState } from 'react';
+import BucketlistTemplate from '@/app/components/BucketListTemplate';
 export default function Bucketlist({}) { 
-  const [values, setValues] = useState({values: [50]})
 
   return (
     <main className={styles.main}>
-      <Slider min={20} defaultValue={20} marks={{ 20: 20, 40: 40, 100: 100 }} step={null} />
+      <div className={styles.contentContainer}>
+        <h1 className="mb-8 pb-8 text-2xl font-bold leading-6 text-gray-900 border-b border-gray-200 ">
+          Generate your own personalized bucket list by answering a few simply questions.
+        </h1>
+      <BucketlistTemplate/>
+      </div>
+
     </main>
   )
 }
