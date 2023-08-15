@@ -16,6 +16,7 @@ export default function BucketlistTemplate({}) {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  
   const [questionsVal, setQuestionsVal] = useState({adventure: '5', social: '5', nature: '5', creativity: '5', cultural: '5', relaxation: '5', learning: '5', thrift: '5', physical: '5', planning: '5', food: '5', historical: '5', music: '5', technology: '5', family: '5'})
   const [bucketList, setBucketList] = useState('');
   const [loading, setLoading] = useState(false);
