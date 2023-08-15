@@ -3,6 +3,7 @@ import styles from '../page.module.css'
 import { useState, useEffect } from 'react';
 export default function LandingTemplate({completion}) {
   const [customMessage, setCustomMessage] = useState(completion)
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;

@@ -1,113 +1,101 @@
 'use client'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { questions } from '../demos/bucketlist/questionsData';
+import Lottie from "react-lottie";
+import Spinner from './Spinner';
+import animationData from "/public/confetti.json";
 
 export default function BucketlistTemplate({}) { 
-  const [adventureVal, setAdventureVal] = useState(50)
-  const [extrovertVal, setExtrovertVal] = useState(50)
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const [questionsVal, setQuestionsVal] = useState({adventure: '5', social: '5', nature: '5', creativity: '5', cultural: '5', relaxation: '5', learning: '5', thrift: '5', physical: '5', planning: '5', food: '5', historical: '5', music: '5', technology: '5', family: '5'})
+  const [bucketList, setBucketList] = useState('');
+  const [loading, setLoading] = useState(false);
+  const questionsEndRef = useRef(null)
+  const  firstRender = useRef(true);
 
-  const questions = [
-    {
-      title: "1. Adventure Seeker",
-      content: "On a scale of 1 to 10, how much do you enjoy taking risks and trying new, adrenaline-pumping activities?",
-      setFunction: setAdventureVal
-    },
-    {
-      title: "2. Social Interactions",
-      content: "How much do you enjoy socializing and being around others? (1 = Introverted, 10 = Extroverted)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "3. Nature and Outdoors",
-      content: "How much do you enjoy spending time in nature and outdoor settings? (1 = Not at all, 10 = Absolutely love it)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "4. Creativity",
-      content: "To what extent do you enjoy engaging in creative activities like art, writing, or crafting? (1 = Not creative, 10 = Extremely creative)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "5. Cultural Exploration",
-      content: "How interested are you in exploring different cultures, traditions, and cuisines? (1 = Not interested, 10 = Very interested)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "6. Relaxation and Leisure",
-      content: "How important is relaxation and downtime for you? (1 = Not important, 10 = Very important)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "7. Learning and Growth",
-      content: "How much do you value personal development and learning new skills? (1 = Not important, 10 = Very important)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "8. Thrift and Luxury",
-      content: "Are you more inclined towards budget-friendly experiences (1) or do you prefer luxury and upscale experiences (10)?",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "9. Physical Activity",
-      content: "How much do you enjoy engaging in physical activities like sports, hiking, or yoga? (1 = Not at all, 10 = Love it)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "10. Planning vs Spontaneity",
-      content: "Do you prefer structured, planned activities (1) or spontaneous, unplanned adventures (10)?",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "11. Food and Culinary Experiences",
-      content: "How much do you enjoy trying new foods and exploring culinary experiences? (1 = Not at all, 10 = Foodie)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "12. Historical and Cultural Sites",
-      content: "How interested are you in visiting historical landmarks and cultural sites? (1 = Not interested, 10 = Very interested)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "13. Music and Entertainment",
-      content: "To what extent does music, concerts, and entertainment play a role in your life? (1 = Not important, 10 = Very important)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "14. Technology and Connectivity",
-      content: "How comfortable are you with disconnecting from technology during your bucket list experiences? (1 = Not comfortable, 10 = Very comfortable)",
-      setFunction: setExtrovertVal
-    },
-    ,
-    {
-      title: "15. Family and Friends",
-      content: "How important is it for you to include family and friends in your bucket list activities? (1 = Not important, 10 = Very important)",
-      setFunction: setExtrovertVal
-    },
+  useEffect(() => {
+    setBucketList('');
+  }, []);
 
-  ]
-  const renderQuestions = (names) => {
-    return names.map((data, i) => <div key={i} className="mb-16">
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    scrollToBottom();
+  }, [bucketList]);
+
+  const setValues = (val, type) => {
+    setQuestionsVal({...questionsVal, [type]: val})
+  }
+  const renderQuestions = () => {
+    return questions.map((data, i) => <div key={i} className="mb-16">
     <h3 className="mb-2 text-lg font-semibold leading-6 text-gray-900">
     {data.title}
     </h3>
     <p className="pb-5">{data.content}</p>
-    <Slider min={10} defaultValue={50} marks={{ 10: 1, 20: 2, 30: 3, 40: 4, 50: 5, 60: 6, 70: 7, 80: 8, 90: 9, 100: 10 }} step={null} onChange={data.setFunction} />
+    <Slider min={10} handleStyle={{borderColor:"#638ccd",}} activeDotStyle={{borderColor:"#9bb5ff"}} trackStyle={{ backgroundColor:'#638ccd'}} defaultValue={50} marks={{ 10: 1, 20: 2, 30: 3, 40: 4, 50: 5, 60: 6, 70: 7, 80: 8, 90: 9, 100: 10 }} step={null} onChange={(val)=>setValues(val.toString().slice(0, -1), data.type)} />
   </div>)
   }
+  const renderBucketList = () => {
+    const filterWord = /bucket|Bucket/;
+    return bucketList.map((data, i) => {
+     if (data.length > 0 && !filterWord.test(data)) {
+      return <li  key={i}  className="py-8 pl-2 text-lg font-normal leading-6 text-gray-900">
+      {data}</li>
+     }
+     null;
+  })
+  }
+
+  const scrollToBottom = () => {
+    questionsEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const answers = JSON.stringify(questionsVal);
+    const res = await fetch(`/api/bucketlist?answers=${answers}`);
+    const data = await res.json();
+    setLoading(false);
+    console.log(data)
+    setBucketList(data.generatedBucketList)
+  }
   return (
-    renderQuestions(questions)
+    <div>
+      {renderQuestions()}
+      <form onSubmit={handleSubmit} className='justify-center flex'>
+        <button className='bg-blue-500 py-4 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300' type='submit' disabled={loading || bucketList} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Generate Bucket List'}</button>
+      </form>
+      {bucketList.length > 0  && <div className='border-t mt-10' >
+        <div className='absolute w-[785px] z-0' >
+        <Lottie options={defaultOptions} height={800} width={500} />
+
+        </div>
+
+        <h1 className="mb-6 text-5xl font-extrabold leading-none underline text-blue-900 decoration-slate-200">
+        <div ref={questionsEndRef} className='pt-10' />
+
+          Here&apos;s your bucket list:
+          </h1>
+          <p className="mb-8 text-md font-light leading-none text-gray-600 text-center  ">
+            Have fun! 😉 </p>
+          <ol className='divide-y list-image-[url(/circle.png)]  z-10 relative'>
+          {renderBucketList()}
+
+          </ol>
+        </div>}
+
+    </div>
   )
 }
