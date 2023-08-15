@@ -4,7 +4,7 @@ import { questions } from '@/app/demos/bucketlist/questionsData';
 export async function GET(request, response) {
   const { searchParams } = new URL(request.url);
   const answers = JSON.parse(searchParams.get('answers'));
-  console.log(answers);
+  console.log("function called");
   let questionArray = [];
   questions.map((data, i) => { 
     questionArray.push(data.content)
