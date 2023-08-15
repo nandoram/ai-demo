@@ -46,6 +46,7 @@ export default function BucketlistTemplate({}) {
     <Slider min={10} handleStyle={{borderColor:"#638ccd",}} activeDotStyle={{borderColor:"#9bb5ff"}} trackStyle={{ backgroundColor:'#638ccd'}} defaultValue={50} marks={{ 10: 1, 20: 2, 30: 3, 40: 4, 50: 5, 60: 6, 70: 7, 80: 8, 90: 9, 100: 10 }} step={null} onChange={(val)=>setValues(val.toString().slice(0, -1), data.type)} />
   </div>)
   }
+  
   const renderBucketList = () => {
     const filterWord = /bucket|Bucket/;
     return bucketList.map((data, i) => {
