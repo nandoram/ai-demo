@@ -50,6 +50,8 @@ export default function BucketlistTemplate({}) {
   
   const renderBucketList = () => {
     const filterWord = /bucket|Bucket/;
+    if (!(Array.isArray(bucketList)) && bucketList.length > 1) return  <li  className="py-8 pl-2 text-lg font-normal leading-6 text-gray-900">
+    {bucketList}</li>
     return bucketList.map((data, i) => {
      if (data.length > 0 && !filterWord.test(data)) {
       return <li  key={i}  className="py-8 pl-2 text-lg font-normal leading-6 text-gray-900">
@@ -71,7 +73,8 @@ export default function BucketlistTemplate({}) {
     const data = await res.json();
     setLoading(false);
     console.log(data)
-    setBucketList(data.generatedBucketList)
+    const splitList = data.generatedBucketList.split(/[0-9]+\./)
+    setBucketList(splitList)
   }
   return (
     <div>
@@ -92,7 +95,7 @@ export default function BucketlistTemplate({}) {
           </h1>
           <p className="mb-8 text-md font-light leading-none text-gray-600 text-center  ">
             Have fun! 😉 </p>
-          <ol className='divide-y list-image-[url(/circle.png)]  z-10 relative'>
+          <ol className='divide-y list-image-[url(/circle.png)]  z-10 relative px-8 border rounded-[20px] border-gray-200'>
           {renderBucketList()}
 
           </ol>

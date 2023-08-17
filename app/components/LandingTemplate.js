@@ -1,11 +1,15 @@
 'use client'
 import styles from '../page.module.css'
 import { useState, useEffect } from 'react';
+import Spinner from './Spinner';
+
 export default function LandingTemplate({completion}) {
   const [customMessage, setCustomMessage] = useState(completion)
-  
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
@@ -14,6 +18,7 @@ export default function LandingTemplate({completion}) {
     const data = await res.json();
     console.log(data)
     setCustomMessage(data.message)
+    setLoading(false);
   }
 
 
@@ -26,11 +31,11 @@ export default function LandingTemplate({completion}) {
         <h1>{customMessage}</h1>
       </div>
       <div className={styles.inputContainer}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='justify-center flex'>
           <label>
-            <input  name="location" placeholder="Enter destination" />
+            <input className='text-gray-800 bg-white mr-2'  name="location" placeholder="Enter destination" />
           </label>
-          <button type='submit' className={styles.button}>Inspire me</button>
+          <button className={'bg-blue-500 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300 items-center'} type='submit' disabled={loading} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Inspire me'}</button>
         </form>
       </div>
     </div>
