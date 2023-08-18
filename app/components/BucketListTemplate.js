@@ -6,6 +6,7 @@ import { questions } from '../demos/bucketlist/questionsData';
 import Lottie from "react-lottie";
 import Spinner from './Spinner';
 import animationData from "/public/confetti.json";
+import Link from 'next/link';
 
 export default function BucketlistTemplate({}) { 
   const defaultOptions = {
@@ -20,6 +21,7 @@ export default function BucketlistTemplate({}) {
   const [questionsVal, setQuestionsVal] = useState({adventure: '5', social: '5', nature: '5', creativity: '5', cultural: '5', relaxation: '5', learning: '5', thrift: '5', physical: '5', planning: '5', food: '5', historical: '5', music: '5', technology: '5', family: '5'})
   const [bucketList, setBucketList] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const questionsEndRef = useRef(null)
   const  firstRender = useRef(true);
 
@@ -72,16 +74,24 @@ export default function BucketlistTemplate({}) {
     const res = await fetch(`/api/bucketlist?answers=${answers}`);
     const data = await res.json();
     setLoading(false);
-    console.log(data)
+    if (data.error){
+      setError("There was a timeout error generating your bucket list. Please try again.")
+      return;
+    }
+    setError('');
     const splitList = data.generatedBucketList.split(/[0-9]+\./)
     setBucketList(splitList)
   }
   return (
     <div>
       {renderQuestions()}
-      <form onSubmit={handleSubmit} className='justify-center flex'>
-        <button className='bg-blue-500 py-4 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300' type='submit' disabled={loading || bucketList} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Generate Bucket List'}</button>
+      <form onSubmit={handleSubmit} className='justify-center flex flex-col'>
+        <button className='bg-blue-500 py-4 px-6 rounded-full font-bold text-white flex self-center hover:bg-blue-800 disabled:bg-gray-300' type='submit' disabled={loading || bucketList} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Generate Bucket List'}</button>
+        <Link className='text-gray-500 text-center mt-4 font-bold underline hover:text-gray-900' href='/demos/bucketlist/view-all'>View All</Link>
+
       </form>
+
+      {error && <p className='text-red-500 text-center mt-4'>{error}</p>}
       {bucketList.length > 0  && <div className='border-t mt-10' >
         <div className='absolute w-[785px] z-0' >
         <Lottie options={defaultOptions} height={800} width={500} />
