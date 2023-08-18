@@ -71,16 +71,22 @@ export default function BucketlistTemplate({}) {
     e.preventDefault();
     setLoading(true);
     const answers = JSON.stringify(questionsVal);
+    let data;
     const res = await fetch(`/api/bucketlist?answers=${answers}`);
-    const data = await res.json();
-    setLoading(false);
-    if (data.error){
-      setError("There was a timeout error generating your bucket list. Please try again.")
-      return;
+    if (res){
+      try {
+        data = await res.json();
+      }
+      catch (e){
+        setError("There was a timeout error generating your bucket list. Please try again.")
+      }
+      if(data){
+        const splitList = data.generatedBucketList.split(/[0-9]+\./)
+        setBucketList(splitList)
+      }
     }
+    setLoading(false);
     setError('');
-    const splitList = data.generatedBucketList.split(/[0-9]+\./)
-    setBucketList(splitList)
   }
   return (
     <div>
