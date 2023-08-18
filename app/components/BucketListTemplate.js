@@ -83,10 +83,10 @@ export default function BucketlistTemplate({}) {
       if(data){
         const splitList = data.generatedBucketList.split(/[0-9]+\./)
         setBucketList(splitList)
+        setError('');
       }
     }
     setLoading(false);
-    setError('');
   }
   return (
     <div>
