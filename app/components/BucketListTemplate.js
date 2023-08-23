@@ -70,9 +70,12 @@ export default function BucketlistTemplate({}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const answers = JSON.stringify(questionsVal);
+    const answers = questionsVal
     let data;
-    const res = await fetch(`/api/bucketlist?answers=${answers}`);
+    const res = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/createBucketList', {
+      method: 'POST',
+      body: JSON.stringify({ content: `Generate a specific and personalized bucketlist based on someone that rates adventure seeking a ${answers.adventure} out of 10, social interactions a ${answers.social} out of 10, nature and outdoors a ${answers.nature} out of 10, creativity a ${answers.creativity} out of 10, cultural exploration a ${answers.cultural} out of 10, learning and growth a ${answers.learning} out of 10, physical activity a ${answers.physical} out of 10, food and culinary experiences a ${answers.food} out of 10, historical and cultural sites a ${answers.historical} out of 10, family and friends a ${answers.family} out of 10`}),
+    });
     if (res){
       try {
         data = await res.json();
@@ -81,7 +84,12 @@ export default function BucketlistTemplate({}) {
         setError("There was a timeout error generating your bucket list. Please try again.")
       }
       if(data){
-        const splitList = data.generatedBucketList.split(/[0-9]+\./)
+        const questionsAndAnswers = {adventure: answers.adventure, social: answers.social, nature: answers.nature, creativity: answers.creativity, cultural: answers.cultural, learning: answers.learning, physical: answers.physical, food: answers.food, historical: answers.historical, family: answers.family}
+        await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/addBucketList', {
+          method: 'POST',
+          body: JSON.stringify({ content: data.message, questionsAndAnswers:questionsAndAnswers}),
+        });
+        const splitList = data.message.split(/[0-9]+\./)
         setBucketList(splitList)
         setError('');
         await fetch(`/api/revalidate/?tag=thumbnails`)
@@ -89,6 +97,8 @@ export default function BucketlistTemplate({}) {
     }
     setLoading(false);
   }
+
+
   return (
     <div>
       {renderQuestions()}
@@ -100,9 +110,9 @@ export default function BucketlistTemplate({}) {
 
       {error && <p className='text-red-500 text-center mt-4'>{error}</p>}
       {bucketList.length > 0  && <div className='border-t mt-10' >
-        <div className='absolute w-[785px] z-0' >
-        <Lottie options={defaultOptions} height={800} width={500} />
 
+        <div className='absolute w-[785px] z-0' >
+          <Lottie options={defaultOptions} height={800} width={500} />
         </div>
 
         <h1 className="mb-6 text-5xl font-extrabold leading-none underline text-blue-900 decoration-slate-200">
