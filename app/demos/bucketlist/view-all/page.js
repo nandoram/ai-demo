@@ -17,12 +17,6 @@ export default function ViewAllBucketLists({}) {
     setBucketListThumbs(bucketListsJson.content)
   } 
 
-
-  // console.log(bucketListsJson)
-  //     return bucketListsJson.items.map((data, i) => {
-  //       console.log(data.questionsAndAnswers ? data.questionsAndAnswers : null)
-
-  // })
   const handleClick = (e) => {
     router.push(`/demos/bucketlist/view-list?key=${e}`)
 

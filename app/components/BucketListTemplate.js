@@ -72,7 +72,7 @@ export default function BucketlistTemplate({}) {
     setLoading(true);
     const answers = JSON.stringify(questionsVal);
     let data;
-    const res = await fetch(`/api/bucketlist/generateList?answers=${answers}`);
+    const res = await fetch(`/api/bucketlist?answers=${answers}`);
     if (res){
       try {
         data = await res.json();
