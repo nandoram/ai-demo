@@ -84,7 +84,6 @@ export default function BucketlistTemplate({}) {
         setError("There was a timeout error generating your bucket list. Please try again.")
       }
       if(data){
-        reValidate();
         const questionsAndAnswers = {adventure: answers.adventure, social: answers.social, nature: answers.nature, creativity: answers.creativity, cultural: answers.cultural, learning: answers.learning, physical: answers.physical, food: answers.food, historical: answers.historical, family: answers.family}
         await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/addBucketList', {
           method: 'POST',
@@ -93,21 +92,19 @@ export default function BucketlistTemplate({}) {
         const splitList = data.message.split(/[0-9]+\./)
         setBucketList(splitList)
         setError('');
+        // await fetch(`/api/revalidate/?tag=thumbnails`)
       }
     }
     setLoading(false);
   }
-const reValidate  = async () => {
-  await fetch(`/api/revalidate/?tag=thumbnails`)
-  console.log('revalidated')
-}
+
 
   return (
     <div>
       {renderQuestions()}
       <form onSubmit={handleSubmit} className='justify-center flex flex-col'>
         <button className='bg-blue-500 py-4 px-6 rounded-full font-bold text-white flex self-center hover:bg-blue-800 disabled:bg-gray-300' type='submit' disabled={loading || bucketList} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Generate Bucket List'}</button>
-        <Link onClick={()=>reValidate()} className='text-gray-500 text-center mt-4 font-bold underline hover:text-gray-900' href='/demos/bucketlist/view-all'>View All</Link>
+        <Link className='text-gray-500 text-center mt-4 font-bold underline hover:text-gray-900' href='/demos/bucketlist/view-all'>View All</Link>
 
       </form>
 
