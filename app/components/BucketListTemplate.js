@@ -92,7 +92,7 @@ export default function BucketlistTemplate({}) {
         const splitList = data.message.split(/[0-9]+\./)
         setBucketList(splitList)
         setError('');
-        // await fetch(`/api/revalidate/?tag=thumbnails`)
+        await fetch('/api/revalidate/?tag=thumbnail')
       }
     }
     setLoading(false);

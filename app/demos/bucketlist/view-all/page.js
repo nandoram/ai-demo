@@ -12,7 +12,7 @@ export default function ViewAllBucketLists({}) {
   }, []);
 
   const getThumbs = async () => {
-    const req = await fetch(`/api/bucketlist/getThumbs`, { cache: 'no-store' });
+    const req = await fetch(`/api/bucketlist/getThumbs`, { cache: 'no-store', next: { tags: ['thumbnails'] } });
     const bucketListsJson = await req.json();
     setBucketListThumbs(bucketListsJson.content)
   } 
