@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 export async function GET(request, response) {
   const { searchParams } = new URL(request.url);
   const answers = JSON.parse(searchParams.get('answers'));
+  const questionsAndAnswers = {adventure: answers.adventure, social: answers.social, nature: answers.nature, creativity: answers.creativity, cultural: answers.cultural, learning: answers.learning, physical: answers.physical, food: answers.food, historical: answers.historical, family: answers.family}
   let rawResponse;
   try {
     rawResponse = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/createBucketList', {
@@ -20,7 +21,7 @@ export async function GET(request, response) {
 
     await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/addBucketList', {
       method: 'POST',
-      body: JSON.stringify({ content: generatedBucketList}),
+      body: JSON.stringify({ content: generatedBucketList, questionsAndAnswers:questionsAndAnswers}),
     });
   
     return NextResponse.json({ generatedBucketList })

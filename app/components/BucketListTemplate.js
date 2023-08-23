@@ -72,7 +72,7 @@ export default function BucketlistTemplate({}) {
     setLoading(true);
     const answers = JSON.stringify(questionsVal);
     let data;
-    const res = await fetch(`/api/bucketlist?answers=${answers}`);
+    const res = await fetch(`/api/bucketlist/generateList?answers=${answers}`);
     if (res){
       try {
         data = await res.json();
@@ -84,6 +84,7 @@ export default function BucketlistTemplate({}) {
         const splitList = data.generatedBucketList.split(/[0-9]+\./)
         setBucketList(splitList)
         setError('');
+        await fetch(`/api/revalidate/?tag=thumbnails`)
       }
     }
     setLoading(false);
