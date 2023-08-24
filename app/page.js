@@ -16,7 +16,7 @@ export default async function Home({}) {
               <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
             </div>
             <div className="group relative">
-            <Image  width={500} height={500} src="/plane-beach.png" alt="" className=" w-full max-h-64  object-cover rounded bg-gray-50 mt-5"/>
+            <Image  width={500} height={500} src="/plane-beach.jpg" alt="" className=" w-full max-h-64  object-cover rounded bg-gray-50 mt-5 group-hover:drop-shadow-2xl"/>
               <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-blue-600">
                 <Link href="/demos/travel-landing">
                   <span className="absolute inset-0"></span>
@@ -44,7 +44,7 @@ export default async function Home({}) {
               <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
             </div>
             <div className="group relative">
-            <Image  width={500} height={500} src="/bucketlist.png" alt="" className=" w-full max-h-64  object-cover rounded bg-gray-50 mt-5 object-top"/>
+            <Image  width={500} height={500} src="/bucketlist.jpg" alt="" className=" w-full group-hover:drop-shadow-2xl max-h-64  object-cover rounded bg-gray-50 mt-5 object-top"/>
               <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-blue-600">
                 <Link href="/demos/bucketlist">
                   <span className="absolute inset-0"></span>
@@ -72,9 +72,9 @@ export default async function Home({}) {
               <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
             </div>
             <div className="group relative">
-            <Image  width={500} height={500} src="/bucketlist.png" alt="" className=" w-full max-h-64  object-cover rounded bg-gray-50 mt-5 object-top"/>
+            <Image  width={500} height={500} src="/book.jpg" alt="" className=" w-full max-h-64 group-hover:drop-shadow-2xl  object-cover rounded bg-gray-50 mt-5 object-middle"/>
               <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-blue-600">
-                <Link href="/demos/bucketlist">
+                <Link href="/demos/books">
                   <span className="absolute inset-0"></span>
                   Discover Books
                 </Link>
@@ -86,7 +86,7 @@ export default async function Home({}) {
               height={100} alt="Picture of author" className="h-10 w-10 rounded-full bg-gray-50"/>
               <div className="text-sm leading-6">
                 <p className="font-semibold text-gray-900">
-                  <Link href="/demos/bucketlist">
+                  <Link href="/demos/books">
                     <span className="absolute inset-0"></span>
                     Nando Rambiriche
                   </Link>
