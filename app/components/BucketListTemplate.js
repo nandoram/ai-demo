@@ -70,12 +70,22 @@ export default function BucketlistTemplate({}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    await generateAddList();
+    setLoading(false);
+  }
+  const generateAddList = async () => {
     const answers = questionsVal
     let data;
-    const res = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/createBucketList', {
-      method: 'POST',
-      body: JSON.stringify({ content: `Generate a specific and personalized bucketlist based on someone that rates adventure seeking a ${answers.adventure} out of 10, social interactions a ${answers.social} out of 10, nature and outdoors a ${answers.nature} out of 10, creativity a ${answers.creativity} out of 10, cultural exploration a ${answers.cultural} out of 10, learning and growth a ${answers.learning} out of 10, physical activity a ${answers.physical} out of 10, food and culinary experiences a ${answers.food} out of 10, historical and cultural sites a ${answers.historical} out of 10, family and friends a ${answers.family} out of 10`}),
-    });
+    let res;
+    try {
+      res = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/createBucketList', {
+        method: 'POST',
+        body: JSON.stringify({ content: `Generate a specific and personalized bucketlist based on someone that rates adventure seeking a ${answers.adventure} out of 10, social interactions a ${answers.social} out of 10, nature and outdoors a ${answers.nature} out of 10, creativity a ${answers.creativity} out of 10, cultural exploration a ${answers.cultural} out of 10, learning and growth a ${answers.learning} out of 10, physical activity a ${answers.physical} out of 10, food and culinary experiences a ${answers.food} out of 10, historical and cultural sites a ${answers.historical} out of 10, family and friends a ${answers.family} out of 10`}),
+      });
+    }
+    catch (e) {
+      setError("There was a timeout error generating your bucket list. Please try again.")
+    }
     if (res){
       try {
         data = await res.json();
@@ -95,9 +105,8 @@ export default function BucketlistTemplate({}) {
         await fetch('/api/revalidate/?tag=thumbnail')
       }
     }
-    setLoading(false);
   }
-
+  
 
   return (
     <div>
