@@ -45,7 +45,7 @@ export default function BucketlistTemplate({}) {
     <h3 className="mb-2 text-lg font-semibold leading-6 text-gray-900">
     {data.title}
     </h3>
-    <p className="pb-5">{data.content}</p>
+    <p className="pb-5 text-gray-600">{data.content}</p>
     <Slider min={10} handleStyle={{borderColor:"#638ccd",}} activeDotStyle={{borderColor:"#9bb5ff"}} trackStyle={{ backgroundColor:'#638ccd'}} defaultValue={50} marks={{ 10: 1, 20: 2, 30: 3, 40: 4, 50: 5, 60: 6, 70: 7, 80: 8, 90: 9, 100: 10 }} step={null} onChange={(val)=>setValues(val.toString().slice(0, -1), data.type)} />
   </div>)
   }
