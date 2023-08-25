@@ -33,7 +33,7 @@ export default function LandingTemplate({completion}) {
       <div className={styles.inputContainer}>
         <form onSubmit={handleSubmit} className='justify-center flex'>
           <label>
-            <input className='text-gray-800 bg-white mr-2'  name="location" placeholder="Enter destination" />
+            <input className='text-gray-800 bg-white mr-2' name="location" placeholder="Enter destination" />
           </label>
           <button className={'bg-blue-500 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300 items-center'} type='submit' disabled={loading} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Inspire me'}</button>
         </form>
