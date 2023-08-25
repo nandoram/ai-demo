@@ -6,7 +6,7 @@ export default function KidStories({}) {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('female')
   return (
-    <Stack  p={20} pt={50} bg='$gray1' ai='center' flex={1} >
+    <Stack  p={20} pt={30} bg='$gray1' ai='center' flex={1} >
       <H1>Custom Story Generator</H1>
       <Paragraph mb={40} col="$gray9" ta="center">Generate a custom, short and teachable story for your little ones, tailored to your specific needs.</Paragraph>
       <YStack gap={20} maw={800} bg='$gray2' br={20} p={10} px={60} ai='center'  boc='$blue4' bw={1}>
