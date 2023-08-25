@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "TAMAGUI_TARGET=web next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@tamagui/config": "^1.55.2",
+    "@tamagui/next-plugin": "^1.55.2",
+    "@tamagui/next-theme": "^1.55.2",
+    "@tamagui/shorthands": "^1.55.2",
+    "@tamagui/themes": "^1.55.2",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
@@ -16,7 +21,8 @@
     "rc-slider": "^10.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-lottie": "^1.2.3"
+    "react-lottie": "^1.2.3",
+    "tamagui": "^1.55.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",

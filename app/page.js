@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
 import styles from './page.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default async function Home({}) {
+export default function Home({}) {
   
-
   return (
     <main className={styles.main}>
       <div className='container mx-auto px-4 max-w-screen-xl pt-10	'>
@@ -74,9 +74,9 @@ export default async function Home({}) {
             <div className="group relative">
             <Image  width={500} height={500} src="/book.jpg" alt="" className=" w-full max-h-64 group-hover:drop-shadow-2xl  object-cover rounded bg-gray-50 mt-5 object-middle"/>
               <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-blue-600">
-                <Link href="/demos/books">
+                <Link href="/demos/stories">
                   <span className="absolute inset-0"></span>
-                  Discover Books
+                  Short Teachable Children Stories
                 </Link>
               </h3>
               <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
@@ -86,7 +86,7 @@ export default async function Home({}) {
               height={100} alt="Picture of author" className="h-10 w-10 rounded-full bg-gray-50"/>
               <div className="text-sm leading-6">
                 <p className="font-semibold text-gray-900">
-                  <Link href="/demos/books">
+                  <Link href="/demos/stories">
                     <span className="absolute inset-0"></span>
                     Nando Rambiriche
                   </Link>
