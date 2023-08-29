@@ -6,7 +6,7 @@ const generateAndAddStory = async (metaData) => {
   let res;
   // return {data: `Generate a short ${answers.category} children story for a ${answers.age} year old ${genderString} named ${answers.name} that is learning a lesson about ${answers.lesson}`, error: null}
   try {
-    res = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/createStory', {
+    res = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/kid-stories/createStory', {
       method: 'POST',
       body: JSON.stringify({ content: `Generate a short ${answers.category} children story for a ${answers.age} year old ${genderString} named ${answers.name} that is learning a lesson about ${answers.lesson}`}),
     });
@@ -23,7 +23,7 @@ const generateAndAddStory = async (metaData) => {
     }
     if(data){
       const questionsAndAnswers = {name: answers.name, age: answers.age, category: answers.category, lesson: answers.lesson, gender: answers.gender}
-      await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/addStory', {
+      await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/kid-stories/addStory', {
         method: 'POST',
         body: JSON.stringify({ content: data.message, questionsAndAnswers:questionsAndAnswers}),
       });
