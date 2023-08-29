@@ -2,27 +2,58 @@
 import { Button, Input, YStack, H1, Paragraph, Stack, H3, Label, XStack , Separator, RadioGroup, Select, Slider} from 'tamagui'
 import { useState, useMemo , useRef, useEffect} from 'react'
 import { Check, ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
-
+import generateAndAddStory from './generateAndAddStory'
+import Spinner from '../../../app/components/Spinner';
+import Lottie from 'react-lottie'
+import animationData from "/public/confetti.json";
 
 export default function KidStories({}) {
   const inputNameRef = useRef(null);
+  const questionsEndRef = useRef(null)
+  const firstRender = useRef(true);
+
   useEffect(() => {
     inputNameRef.current?.focus();
   }, []);
   const [name, setName] = useState('');
   const [gender, setGender] = useState('none');
   const [age, setAge] = useState([3]);
-  const [category, setCategory] = useState('General');
+  const [category, setCategory] = useState('Bedtime');
   const [lesson, setLesson] = useState('');
   const [error, setError] = useState('');
-  console.log( age[0]) 
-
-  const handleButtonPress = () => {
+  const [story, setStory] = useState('');
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    scrollToBottom();
+  }, [story]);
+  const scrollToBottom = () => {
+    questionsEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+  const handleButtonPress = async () => {
     if(name.length < 1) return setError("Must enter child's name")
     if(lesson.length < 1) return setError("Must enter lesson")
     if (name.length > 20) return setError("Name must be less than 20 characters")
     if (lesson.length > 100) return setError("Lesson must be less than 100 characters")
     setError('');
+
+    const answers = {name, lesson, age: age[0], gender, category}
+    setLoading(true);
+    const data = await generateAndAddStory(answers)
+    if (data.data){
+      setStory(data.data);
+      setLoading(false);
+      setError('');
+
+    }
+    if (data.error){
+      setError(data.error);
+      setLoading(false);
+    }
+    console.log(data)
   }
   return (
     <Stack  p={20} pt={30} bg='$gray1' ai='center' flex={1} >
@@ -110,8 +141,18 @@ export default function KidStories({}) {
         </YStack>
         {error && <Paragraph mt={20} col="$red9" ta="center">{error}</Paragraph>}
 
-        <Button onPress={handleButtonPress} size="$6" fow="900" theme='purple'>CREATE STORY</Button>
+        <Button disabled={loading || story.length > 0} onPress={handleButtonPress} size="$6" fow="900" theme='purple' bg={story.length > 0 ? "$gray8" : "$purple6"}>{loading && <Spinner/> } {loading ? 'Generating...' : 'CREATE STORY'}</Button>
       </YStack>
+      {story && <YStack gap={20} mt={40} maw={800} bg='$gray2' br={20} p={10} px={60} ai='center'  boc='$blue4' bw={1}>
+        <Stack position='absolute' zIndex={0} width={500} height={200} backgroundColor='$black'>
+        <Lottie options={defaultOptions} width={500} style={{position:'absolute'}} />
+
+        </Stack>
+
+        <H1 ref={questionsEndRef} >Story Time!</H1>
+        <Separator alignSelf="stretch" mb={20}  />
+        <Paragraph fow='100' col="$gray9">{story}</Paragraph>
+      </YStack>}
    
     </Stack>
   
@@ -120,9 +161,20 @@ export default function KidStories({}) {
 }
 
 const items = [
-  { name: 'General' },
-  { name: 'Scary' },
+  { name: 'Bedtime' },
+  { name: 'Moral' },
   { name: 'Adventure' },
   { name: 'Mystery' },
-
+  { name: 'Science Fiction' },
+  { name: 'Funny' },
+  { name: 'Poetic' },
 ]
+
+const defaultOptions = {
+  loop: false,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};

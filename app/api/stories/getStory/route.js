@@ -5,7 +5,7 @@ export async function GET(request) {
   const key = searchParams.get('key');
   let rawResponse;
   try {
-    rawResponse = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/getBucketList', {
+    rawResponse = await fetch('https://dpojactvu7.execute-api.us-east-1.amazonaws.com/getStory', {
       method: 'POST',
       body: JSON.stringify({ primary_key: key}),
     });
