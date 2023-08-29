@@ -23,7 +23,6 @@ export default function KidStories({}) {
     if (name.length > 20) return setError("Name must be less than 20 characters")
     if (lesson.length > 100) return setError("Lesson must be less than 100 characters")
     setError('');
-
   }
   return (
     <Stack  p={20} pt={30} bg='$gray1' ai='center' flex={1} >
