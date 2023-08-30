@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
-
+import Spinner from './loading';
 
 export default function ViewAllBucketLists({}) { 
   const router = useRouter()
@@ -50,7 +50,7 @@ export default function ViewAllBucketLists({}) {
         <h1 className="mb-6 text-5xl font-extrabold leading-none underline text-blue-900 decoration-slate-200">
          <span className=''></span>All Generated Bucket Lists
         </h1>
-        <div className="lg:grid-cols-6 grid-cols-2 grid auto-cols-fr gap-4	 	">{renderBucketListWrapper()}</div>
+        {bucketListThumbs ? <div className="lg:grid-cols-6 grid-cols-2 grid auto-cols-fr gap-4">{renderBucketListWrapper()}</div> : <Spinner/>} 
       </div>
 
   )

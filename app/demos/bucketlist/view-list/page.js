@@ -1,7 +1,7 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react';
-
+import Spinner from './loading';
 export default function Bucketlist({}) { 
   const searchParams = useSearchParams()
   const key = searchParams.get('key')
@@ -49,13 +49,17 @@ export default function Bucketlist({}) {
         <h1 className="mb-6 text-5xl font-extrabold leading-none underline text-blue-900 decoration-slate-200">
          <span className=''></span>Bucket List
         </h1>
-        <ul className='self-center flex flex-row bg-gray-100 divide-x z-10 mx-1 my-4 relative px-2 mx-1 border rounded-[20px] border-gray-200 '>
-          {renderQuestionsAndAnswers()}
-        </ul>
+        {bucketList ? 
+        <> 
+          <ul className='self-center flex flex-row bg-gray-100 divide-x z-10 mx-1 my-4 relative px-2 mx-1 border rounded-[20px] border-gray-200 '>
+            {renderQuestionsAndAnswers()}
+          </ul>
           <ol className='divide-y list-image-[url(/circle.png)] self-center max-w-4xl  z-10 relative px-8 mx-8 border rounded-[20px] border-gray-200'>
             {renderBucketList()}
 
           </ol>
+        </>  : <Spinner/>}
+       
       </div>
 
   )

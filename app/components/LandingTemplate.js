@@ -28,7 +28,7 @@ export default function LandingTemplate({completion}) {
         <source src="/plane-pass.webm" />
       </video>
       <div className={styles.center}>
-        <h1>{customMessage}</h1>
+        {loading ? <Spinner/> : <h1>{customMessage}</h1>}
       </div>
       <div className={styles.inputContainer}>
         <form onSubmit={handleSubmit} className='justify-center flex'>

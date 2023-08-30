@@ -1,7 +1,7 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react';
-
+import Spinner from './loading';
 export default function Story({}) { 
   const searchParams = useSearchParams()
   const key = searchParams.get('key')
@@ -37,11 +37,14 @@ export default function Story({}) {
         <h1 className="mb-6 text-5xl font-extrabold leading-none underline text-blue-900 decoration-slate-200">
          <span className=''></span>Short Children Story
         </h1>
-        <h2 className='text-gray-900 font-bold capitalize text-center'>{questionsAndAnswers.lesson}</h2>
-        <ul className='self-center flex flex-row bg-gray-100 divide-x z-10 mx-1 my-4 relative px-2 mx-1 border rounded-[20px] border-gray-200 '>
-          {renderQuestionsAndAnswers()}
-        </ul>
-        <p className=' text-gray-900 mt-8 self-center max-w-4xl leading-loose z-10 relative px-8 mx-8 border rounded-[20px] border-gray-200'>{story}</p>
+        {story ? 
+        <>
+          <h2 className='text-gray-900 font-bold capitalize text-center'>{questionsAndAnswers.lesson}</h2>
+          <ul className='self-center flex flex-row bg-gray-100 divide-x z-10 mx-1 my-4 relative px-2 mx-1 border rounded-[20px] border-gray-200 '>
+            {renderQuestionsAndAnswers()}
+          </ul>
+          <p className=' text-gray-900 mt-8 self-center max-w-4xl leading-loose z-10 relative md:px-8 md:mx-8 border rounded-[20px] border-gray-200'>{story}</p>
+        </> : <Spinner/>}
       </div>
 
   )

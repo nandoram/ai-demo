@@ -1,7 +1,7 @@
 'use client'
 import { Button, Input, YStack, H1, Paragraph, Stack, H3, Label, XStack , Separator, RadioGroup, Select, Slider} from 'tamagui'
-import { useState, useMemo , useRef, useEffect} from 'react'
-import { Check, ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
+import { useState , useRef, useEffect} from 'react'
+import { Check, ChevronDown } from '@tamagui/lucide-icons'
 import generateAndAddStory from './generateAndAddStory'
 import Spinner from '../../../app/components/Spinner';
 import Lottie from 'react-lottie'
@@ -55,13 +55,12 @@ export default function KidStories({}) {
       setError(data.error);
       setLoading(false);
     }
-    console.log(data)
   }
   return (
-    <Stack  p={20} pt={30} bg='$gray1' ai='center' flex={1} >
+    <Stack  p={20}  pt={30} bg='$gray1' ai='center' flex={1} >
       <H1>Short Story Generator</H1>
       <Paragraph mb={40} col="$gray9" ta="center">Generate a custom, short and teachable story for your little ones, tailored to your specific needs.</Paragraph>
-      <YStack gap={20} maw={800} bg='$gray2' br={20} p={10} px={60} ai='center'  boc='$blue4' bw={1}>
+      <YStack gap={20} maw={800} bg='$gray2' br={20} p={10} px={60}  ai='center'  boc='$blue4' bw={1}>
         <H3 fow='100' mt={20} fos={39} >What is the child&apos;s name?</H3>
         <YStack space={0} >
           <Label fow='100' col={'$gray9'}  htmlFor="name">First Name: </Label>
@@ -102,8 +101,8 @@ export default function KidStories({}) {
         </Slider>
         <Separator alignSelf="stretch" my={20}  />
         <H3 fow='100' mb={10} fos={39} >Select story category</H3>
-        <Select  size={'$6'} defaultValue={category} value={category} onValueChange={setCategory}  >
-          <Select.Trigger iconAfter={ChevronDown} borderRadius={20} boc="$green6" borderWidth={2} bg="$green1" >
+        <Select size={'$6'} defaultValue={category} value={category} onValueChange={setCategory}  >
+          <Select.Trigger iconAfter={ChevronDown} col="black" borderRadius={20} boc="$green6" borderWidth={2} bg="$green1" >
             <Select.Value fos={24} col="$green7" fow="900" placeholder="General" />
           </Select.Trigger>
           <Select.Content>
@@ -112,7 +111,6 @@ export default function KidStories({}) {
             <Select.Group>
             <Select.Label>Story Categories</Select.Label>
             {/* for longer lists memoizing these is useful */}
-            
                 {items.map((item, i) => {
                   return (
                     <Select.Item

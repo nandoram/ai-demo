@@ -23,7 +23,7 @@ export default function Home({}) {
                   Travel Landing
                 </Link>
               </h3>
-              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Get a call to vacation - to a destination based on your city(IP) or enter a location. </p>
             </div>
             <div className="relative mt-8 flex items-center gap-x-4">
               <Image src="/headshot-nr.jpg"  width={100}
@@ -41,7 +41,7 @@ export default function Home({}) {
           </article>
           <article className="flex max-w-xl flex-col items-start justify-between">
             <div className="flex items-center gap-x-4 text-xs">
-              <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+              <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Novelty</a>
             </div>
             <div className="group relative">
             <Image  width={500} height={500} src="/bucketlist.jpg" alt="" className=" w-full group-hover:drop-shadow-2xl max-h-64  object-cover rounded bg-gray-50 mt-5 object-top"/>
@@ -51,7 +51,7 @@ export default function Home({}) {
                   Generate Bucket list
                 </Link>
               </h3>
-              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Create a personalized bucket list by answering a few questions based on your personality.</p>
             </div>
             <div className="relative mt-8 flex items-center gap-x-4">
               <Image src="/headshot-nr.jpg"  width={100}
@@ -69,7 +69,7 @@ export default function Home({}) {
           </article>
           <article className="flex max-w-xl flex-col items-start justify-between">
             <div className="flex items-center gap-x-4 text-xs">
-              <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+              <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Education</a>
             </div>
             <div className="group relative">
             <Image  width={500} height={500} src="/book.jpg" alt="" className=" w-full max-h-64 group-hover:drop-shadow-2xl  object-cover rounded bg-gray-50 mt-5 object-middle"/>
@@ -79,7 +79,7 @@ export default function Home({}) {
                   Short Teachable Children Stories
                 </Link>
               </h3>
-              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Create a short teachable story for children to learn a lesson you specify.</p>
             </div>
             <div className="relative mt-8 flex items-center gap-x-4">
               <Image src="/headshot-nr.jpg"  width={100}
