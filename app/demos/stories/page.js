@@ -112,9 +112,8 @@ export default function KidStories({}) {
             <Select.Group>
             <Select.Label>Story Categories</Select.Label>
             {/* for longer lists memoizing these is useful */}
-            {useMemo(
-              () =>
-                items.map((item, i) => {
+            
+                {items.map((item, i) => {
                   return (
                     <Select.Item
                       index={i}
@@ -127,9 +126,8 @@ export default function KidStories({}) {
                       </Select.ItemIndicator>
                     </Select.Item>
                   )
-                }),
-              []
-            )}
+                })}
+             
           </Select.Group>
             </Select.Viewport>
             <Select.ScrollDownButton />
