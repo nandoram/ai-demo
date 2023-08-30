@@ -1,8 +1,6 @@
 'use client'
-import 'rc-slider/assets/index.css';
-import BucketlistTemplate from '@/app/components/BucketListTemplate';
 import { useSearchParams } from 'next/navigation'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Bucketlist({}) { 
   const searchParams = useSearchParams()
