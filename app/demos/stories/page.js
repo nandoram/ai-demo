@@ -6,11 +6,13 @@ import generateAndAddStory from './generateAndAddStory'
 import Spinner from '../../../app/components/Spinner';
 import Lottie from 'react-lottie'
 import animationData from "/public/confetti.json";
+import { useRouter } from 'next/navigation'
 
 export default function KidStories({}) {
   const inputNameRef = useRef(null);
   const questionsEndRef = useRef(null)
   const firstRender = useRef(true);
+  const router = useRouter()
 
   useEffect(() => {
     inputNameRef.current?.focus();
@@ -21,7 +23,7 @@ export default function KidStories({}) {
   const [category, setCategory] = useState('Bedtime');
   const [lesson, setLesson] = useState('');
   const [error, setError] = useState('');
-  const [story, setStory] = useState('');
+  const [story, setStory] = useState("");
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (firstRender.current) {
@@ -142,16 +144,15 @@ export default function KidStories({}) {
         {error && <Paragraph mt={20} col="$red9" ta="center">{error}</Paragraph>}
 
         <Button disabled={loading || story.length > 0} onPress={handleButtonPress} size="$6" fow="900" theme='purple' bg={story.length > 0 ? "$gray8" : "$purple6"}>{loading && <Spinner/> } {loading ? 'Generating...' : 'CREATE STORY'}</Button>
+        <Button chromeless onPress={() => router.push('/demos/stories/view-all')}  >View all</Button>
       </YStack>
       {story && <YStack gap={20} mt={40} maw={800} bg='$gray2' br={20} p={10} px={60} ai='center'  boc='$blue4' bw={1}>
         <Stack position='absolute' zIndex={0} width={500} height={200} backgroundColor='$black'>
-        <Lottie options={defaultOptions} width={500} style={{position:'absolute'}} />
-
+          <Lottie options={defaultOptions} width={500} style={{position:'absolute'}} />
         </Stack>
-
         <H1 ref={questionsEndRef} >Story Time!</H1>
         <Separator alignSelf="stretch" mb={20}  />
-        <Paragraph fow='100' col="$gray9">{story}</Paragraph>
+        <Paragraph fow='100' fos={16} lh={32}>{story}</Paragraph>
       </YStack>}
    
     </Stack>
