@@ -1,0 +1,18 @@
+{
+  "global": {
+    "testColor": {
+      "value": "#f44",
+      "type": "color"
+    }
+  },
+  "fire_light": {},
+  "fire_dark": {},
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": [
+      "global",
+      "fire_light",
+      "fire_dark"
+    ]
+  }
+}
