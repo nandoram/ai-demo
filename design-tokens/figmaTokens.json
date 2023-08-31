@@ -1,7 +1,7 @@
 {
   "global": {
     "testColor": {
-      "value": "#f44",
+      "value": "#f44444",
       "type": "color"
     }
   },
