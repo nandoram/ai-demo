@@ -32,7 +32,7 @@
   "dark_fire": {
     "default": {
       "background": {
-        "value": "#e2e2e2",
+        "value": "#000",
         "type": "color"
       },
       "color": {
