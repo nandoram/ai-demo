@@ -5,14 +5,60 @@
       "type": "color"
     }
   },
-  "fire_light": {},
-  "fire_dark": {},
+  "light_fire": {
+    "default": {
+      "background": {
+        "value": "#f8f8f8",
+        "type": "color"
+      },
+      "borderColor": {
+        "value": "#cacaca",
+        "type": "color"
+      },
+      "borderColorHover": {
+        "value": "#949494",
+        "type": "color"
+      },
+      "color": {
+        "value": "#a0a0a0",
+        "type": "color"
+      },
+      "colorFocus": {
+        "value": "#b65454",
+        "type": "color"
+      }
+    }
+  },
+  "dark_fire": {
+    "default": {
+      "background": {
+        "value": "#e2e2e2",
+        "type": "color"
+      },
+      "color": {
+        "value": "#3c802b",
+        "type": "color"
+      },
+      "borderColor": {
+        "value": "#376781",
+        "type": "color"
+      },
+      "borderColorHover": {
+        "value": "#0f0f0f",
+        "type": "color"
+      },
+      "colorFocus": {
+        "value": "#570f6d",
+        "type": "color"
+      }
+    }
+  },
   "$themes": [],
   "$metadata": {
     "tokenSetOrder": [
       "global",
-      "fire_light",
-      "fire_dark"
+      "light_fire",
+      "dark_fire"
     ]
   }
 }
