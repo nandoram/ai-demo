@@ -6,7 +6,8 @@
     "dev": "TAMAGUI_TARGET=web next dev",
     "build": "TAMAGUI_TARGET=web next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:tokens": "node design-tokens/buildTokens.js"
   },
   "dependencies": {
     "@tamagui/config": "^1.55.2",

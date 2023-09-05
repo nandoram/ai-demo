@@ -3,17 +3,16 @@
 import styles from './page.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-
+import * as tokens from '/design-tokens/figmaTokens.json'
 export default function Home({}) {
-  
   return (
-    <main className={styles.main}>
-      <div className='container mx-auto px-4 max-w-screen-xl pt-10	'>
+    <main className={styles.main} style={{backgroundColor: tokens.global.testColor.value }}>
+      <div className={`container mx-auto px-4 max-w-screen-xl pt-10`}>
         <h1 className="text-3xl font-bold underline"> AI Tech Demos </h1>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <article className="flex max-w-xl flex-col items-start justify-between">
             <div className="flex items-center gap-x-4 text-xs">
-              <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+              <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a> 
             </div>
             <div className="group relative">
             <Image  width={500} height={500} src="/plane-beach.jpg" alt="" className=" w-full max-h-64  object-cover rounded bg-gray-50 mt-5 group-hover:drop-shadow-2xl"/>

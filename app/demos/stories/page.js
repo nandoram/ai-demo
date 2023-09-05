@@ -64,7 +64,7 @@ export default function KidStories({}) {
         <H3 fow='100' mt={20} fos={39} >What is the child&apos;s name?</H3>
         <YStack space={0} >
           <Label fow='100' col={'$gray9'}  htmlFor="name">First Name: </Label>
-          <Input ref={inputNameRef} fow='600' bg='$green1'fos={26} size="$7" placeholderTextColor='$green7' theme='green' placeholder="Enter child's first name" borderWidth={2} value={name} onChangeText={text => setName(text)} /> 
+          <Input ref={inputNameRef} fow='600' fos={26} size="$7" placeholderTextColor='$green7' theme='fire' placeholder="Enter child's first name" borderWidth={2} value={name} onChangeText={text => setName(text)} /> 
         </YStack>
        <Separator alignSelf="stretch" my={20}  />
         <H3 fow='100' fos={39} >Select gender bias</H3>
@@ -93,7 +93,7 @@ export default function KidStories({}) {
         <H3 fow='100' fos={39} >How old is the child?</H3>
         <Label fow='900' fos={55} lineHeight={18} mt={20}  htmlFor="age">{age}</Label>
         <Label fow='100' col={'$gray9'} p={0} m={0} lineHeight={18} mb={40} fos={18} htmlFor="age">years</Label>
-        <Slider theme='purple' size="$4" width={300} mb={20} defaultValue={age} max={12} min={1} onValueChange={setAge} step={1}>
+        <Slider theme='fire' size="$4" width={300} mb={20} defaultValue={age} max={12} min={1} onValueChange={setAge} step={1}>
           <Slider.Track>
             <Slider.TrackActive />
           </Slider.Track>
@@ -135,11 +135,11 @@ export default function KidStories({}) {
         <H3 fow='100' fos={39} >What is the lesson to learn?</H3>
         <YStack space={0} mb={20} >
           <Label fow='100' col={'$gray9'}  htmlFor="name">eg. why playing on the road is dangerous </Label>
-          <Input fow='600' bg='$blue1'fos={26} size="$7" placeholderTextColor='$blue7' theme='blue' placeholder="Enter lesson " borderWidth={2} value={lesson} onChangeText={text => setLesson(text)} /> 
+          <Input fow='600' bg='$blue1'fos={26} size="$7" placeholderTextColor='$blue7' theme='fire' placeholder="Enter lesson " borderWidth={2} value={lesson} onChangeText={text => setLesson(text)} /> 
         </YStack>
         {error && <Paragraph mt={20} col="$red9" ta="center">{error}</Paragraph>}
 
-        <Button disabled={loading || story.length > 0} onPress={handleButtonPress} size="$6" fow="900" theme='purple' bg={story.length > 0 ? "$gray8" : "$purple6"}>{loading && <Spinner/> } {loading ? 'Generating...' : 'CREATE STORY'}</Button>
+        <Button disabled={loading || story.length > 0} onPress={handleButtonPress} size="$6" fow="900" theme='fire' bg={story.length > 0 ? "$gray8" : "$purple6"}>{loading && <Spinner/> } {loading ? 'Generating...' : 'CREATE STORY'}</Button>
         <Button chromeless onPress={() => router.push('/demos/stories/view-all')}  >View all</Button>
       </YStack>
       {story && <YStack gap={20} mt={40} maw={800} bg='$gray2' br={20} p={10} px={60} ai='center'  boc='$blue4' bw={1}>

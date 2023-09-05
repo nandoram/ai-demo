@@ -53,6 +53,5 @@ export default function ViewAllStories({}) {
         </h1>
         {storiesThumbs ? <div className="lg:grid-cols-6 grid-cols-2 grid auto-cols-fr gap-4">{renderStoriesWrapper()}</div> : <Spinner/>}
       </div>
-
   )
 }

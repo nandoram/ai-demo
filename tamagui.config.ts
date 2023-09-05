@@ -1,6 +1,9 @@
 import { shorthands } from '@tamagui/shorthands'
-import { themes, tokens } from '@tamagui/themes'
+import { tokens } from '@tamagui/themes'
 import { createFont, createTamagui } from 'tamagui'
+import mergedThemes from './themes'
+
+const themes = mergedThemes;
 
 export default createTamagui({
   themes,
