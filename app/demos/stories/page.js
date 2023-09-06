@@ -102,7 +102,7 @@ export default function KidStories({}) {
         </Slider>
         <Separator alignSelf="stretch" my={20}  />
         <H3 fow='100' mb={10} fos={39} >Select story category</H3>
-        <Select theme={'green'} native={media.xs ? true: false} size={'$6'} defaultValue={category} value={category} onValueChange={setCategory}  >
+        <Select backgroundColor="$green9" native={media.xs ? true: false} size={'$6'} defaultValue={category} value={category} onValueChange={setCategory}  >
           <Select.Trigger iconAfter={ChevronDown} col="black" borderRadius={20} boc="$green6" borderWidth={2} bg="$green1" >
             <Select.Value fos={24} col="$green7" fow="900" placeholder="General" />
           </Select.Trigger>
