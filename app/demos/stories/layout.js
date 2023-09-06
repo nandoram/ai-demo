@@ -1,7 +1,7 @@
 
 
 'use client'
-import '@tamagui/core/reset.css'
+// import '@tamagui/core/reset.css'
 import { useState, useEffect } from 'react'
 import { TamaguiProvider } from 'tamagui'
 import config from '../../../tamagui.config'

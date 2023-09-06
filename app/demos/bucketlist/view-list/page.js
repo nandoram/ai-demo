@@ -2,6 +2,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react';
 import Spinner from './loading';
+ 
 export default function Bucketlist({}) { 
   const searchParams = useSearchParams()
   const key = searchParams.get('key')
