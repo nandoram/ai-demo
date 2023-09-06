@@ -43,7 +43,7 @@ export default function Story({}) {
           <ul className='self-center flex flex-row bg-gray-100 divide-x z-10 mx-1 my-4 relative px-2 mx-1 border rounded-[20px] border-gray-200 '>
             {renderQuestionsAndAnswers()}
           </ul>
-          <p className=' text-gray-900 mt-8 self-center max-w-4xl leading-loose z-10 relative md:px-8 md:mx-8 border rounded-[20px] border-gray-200'>{story}</p>
+          <p className=' text-gray-900 mt-8 self-center max-w-4xl leading-loose z-10 relative md:px-8 md:mx-8 border rounded-[20px] border-gray-200 p-5'>{story}</p>
         </> : <Spinner/>}
       </div>
 

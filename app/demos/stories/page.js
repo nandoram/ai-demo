@@ -64,11 +64,11 @@ export default function KidStories({}) {
         <H3 fow='100' mt={20} fos={39} >What is the child&apos;s name?</H3>
         <YStack space={0} >
           <Label fow='100' col={'$gray9'}  htmlFor="name">First Name: </Label>
-          <Input ref={inputNameRef} fow='600' fos={26} size="$7" placeholderTextColor='$green7' theme='fire' placeholder="Enter child's first name" borderWidth={2} value={name} onChangeText={text => setName(text)} /> 
+          <Input w="100%" ref={inputNameRef} fow='600' fos={26} size="$7" placeholderTextColor='$green7' theme='fire' placeholder="Enter child's first name" borderWidth={2} value={name} onChangeText={text => setName(text)} /> 
         </YStack>
        <Separator alignSelf="stretch" my={20}  />
         <H3 fow='100' fos={39} >Select gender bias</H3>
-        <RadioGroup value={gender} size="$4" miw={350} name='form' onValueChange={value => setGender(value)} >
+        <RadioGroup value={gender} size="$4" miw={250} w="100%" name='form' onValueChange={value => setGender(value)} >
         
           <XStack gap={10} ai='center' p={10} px={20} bw={2} boc={ (gender==='female') ? '$blue7' : '$blue4'} br={20} onPress={()=>setGender('female')}>
             <RadioGroup.Item value="female" id="femaleChild">
@@ -135,7 +135,7 @@ export default function KidStories({}) {
         <H3 fow='100' fos={39} >What is the lesson to learn?</H3>
         <YStack space={0} mb={20} >
           <Label fow='100' col={'$gray9'}  htmlFor="name">eg. why playing on the road is dangerous </Label>
-          <Input fow='600' bg='$blue1'fos={26} size="$7" placeholderTextColor='$blue7' theme='fire' placeholder="Enter lesson " borderWidth={2} value={lesson} onChangeText={text => setLesson(text)} /> 
+          <Input w="100%" fow='600' bg='$blue1'fos={26} size="$7" placeholderTextColor='$blue7' theme='fire' placeholder="Enter lesson " borderWidth={2} value={lesson} onChangeText={text => setLesson(text)} /> 
         </YStack>
         {error && <Paragraph mt={20} col="$red9" ta="center">{error}</Paragraph>}
 
