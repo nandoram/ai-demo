@@ -30,14 +30,14 @@ export default function LandingTemplate({completion}) {
         <source src="/plane-pass.webm" />
       </video>
       <div className={styles.center}>
-        {loading ? <Spinner/> : <h1>{customMessage}</h1>}
+        {loading ? <Spinner/> : <h1 className='text-4xl leading-normal md:text-6xl md:leading-[5rem] '>{customMessage}</h1>}
       </div>
       <div className={styles.inputContainer}>
         <form onSubmit={handleSubmit} className='justify-center flex'>
           <label>
-            <input className='text-gray-800 bg-white mr-2' name="location" placeholder="Enter destination" />
+            <input className='text-gray-800 bg-white pr-2 w-full' name="location" placeholder="Enter destination" />
           </label>
-          <button className={'bg-blue-500 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300 items-center'} type='submit' disabled={loading} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Inspire me'}</button>
+          <button className={'bg-blue-500 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300 items-center ml-2'} type='submit' disabled={loading} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Inspire me'}</button>
         </form>
         {error && <p className='text-red-500 text-xs'>{error}</p>}
       </div>
