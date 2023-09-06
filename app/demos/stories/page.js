@@ -1,5 +1,5 @@
 'use client'
-import { Button, Input, YStack, H1, Paragraph, Stack, H3, Label, XStack , Separator, RadioGroup, Select, Slider} from 'tamagui'
+import { Button, Input, YStack, H1, Paragraph, Stack, H3, Label, XStack , Separator, RadioGroup, Select, Slider, useMedia} from 'tamagui'
 import { useState , useRef, useEffect} from 'react'
 import { Check, ChevronDown } from '@tamagui/lucide-icons'
 import generateAndAddStory from './generateAndAddStory'
@@ -13,10 +13,11 @@ export default function KidStories({}) {
   const questionsEndRef = useRef(null)
   const firstRender = useRef(true);
   const router = useRouter()
+  const media = useMedia()
 
-  useEffect(() => {
-    inputNameRef.current?.focus();
-  }, []);
+  // useEffect(() => {
+  //   inputNameRef.current?.focus();
+  // }, []);
   const [name, setName] = useState('');
   const [gender, setGender] = useState('none');
   const [age, setAge] = useState([3]);
@@ -93,7 +94,7 @@ export default function KidStories({}) {
         <H3 fow='100' fos={39} >How old is the child?</H3>
         <Label fow='900' fos={55} lineHeight={18} mt={20}  htmlFor="age">{age}</Label>
         <Label fow='100' col={'$gray9'} p={0} m={0} lineHeight={18} mb={40} fos={18} htmlFor="age">years</Label>
-        <Slider theme='fire' size="$4" width={300} mb={20} defaultValue={age} max={12} min={1} onValueChange={setAge} step={1}>
+        <Slider theme='purple' size="$4" width={300} mb={20} defaultValue={age} max={12} min={1} onValueChange={setAge} step={1}>
           <Slider.Track>
             <Slider.TrackActive />
           </Slider.Track>
@@ -101,7 +102,7 @@ export default function KidStories({}) {
         </Slider>
         <Separator alignSelf="stretch" my={20}  />
         <H3 fow='100' mb={10} fos={39} >Select story category</H3>
-        <Select size={'$6'} defaultValue={category} value={category} onValueChange={setCategory}  >
+        <Select native={media.xs ? true: false} size={'$6'} defaultValue={category} value={category} onValueChange={setCategory}  >
           <Select.Trigger iconAfter={ChevronDown} col="black" borderRadius={20} boc="$green6" borderWidth={2} bg="$green1" >
             <Select.Value fos={24} col="$green7" fow="900" placeholder="General" />
           </Select.Trigger>

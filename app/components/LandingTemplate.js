@@ -37,7 +37,7 @@ export default function LandingTemplate({completion}) {
           <label>
             <input className='text-gray-800 bg-white pr-2 w-full' name="location" placeholder="Enter destination" />
           </label>
-          <button className={'bg-blue-500 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300 items-center ml-2'} type='submit' disabled={loading} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Inspire me'}</button>
+          <button className={'bg-blue-500 px-6 rounded-full font-bold text-white flex hover:bg-blue-800 disabled:bg-gray-300 items-center ml-2 min-w-fit'} type='submit' disabled={loading} > {loading && <Spinner/> } {loading ? 'Generating...' : 'Inspire me'}</button>
         </form>
         {error && <p className='text-red-500 text-xs'>{error}</p>}
       </div>
