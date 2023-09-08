@@ -13,14 +13,14 @@ export default function Home({}) {
         <h1 className="text-3xl font-bold  text-left p-0"> Thrillworks AI Tech Demos </h1>
         <p className=" line-clamp-3 text-sm leading-6 text-gray-600">View and interact with tech demos meant to demonstrate use cases for generative AI technology </p>
         <ul className='mt-2 flex flex-row flex-wrap -ml-1 '>
-          <li className='px-5 m-1 border rounded-full'>NextJS</li>
-          <li className='px-5 m-1 border rounded-full'>AWS</li>
-          <li className='px-5 m-1 border rounded-full'>Serverless Framework</li>
-          <li className='px-5 m-1 border rounded-full'>ChatGPT API</li>
-          <li className='px-5 m-1 border rounded-full'>Location API</li>
-          <li className='px-5 m-1 border rounded-full'>Tailwind CSS</li>
-          <li className='px-5 m-1 border rounded-full'>Tamagui Components</li>
-          <li className='px-5 m-1 border rounded-full'>Figma Tokens</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600'>NextJS</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600 '>AWS</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600'>Serverless Framework</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600'>ChatGPT API</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600'>Location API</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600'>Tailwind CSS</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600'>Tamagui Components</li>
+          <li className='px-5 m-1 border rounded-full text-gray-600'>Figma Tokens</li>
         </ul>
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 mt-5 pt-5  lg:mx-0 lg:max-w-none lg:grid-cols-3 ">
           <article className="flex max-w-xl flex-col items-start justify-start">
