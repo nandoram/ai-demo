@@ -35,7 +35,7 @@ export default function Home({}) {
                   Travel Landing
                 </Link>
               </h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">Get a call to vacation - to a destination based on your city(IP) or enter a location. Refresh the page to generate a new message. </p>
+              <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">Get a call to vacation - to a destination based on your city(IP) or enter a location.</p>
             </div>
             <div className="relative mt-8 flex items-center gap-x-4">
               <Image src="/headshot-nr.jpg"  width={100}
