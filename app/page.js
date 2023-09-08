@@ -11,8 +11,19 @@ export default function Home({}) {
 
       <div className={`container mx-auto px-4 max-w-screen-xl pt-10`}>
         <h1 className="text-3xl font-bold  text-left p-0"> Thrillworks AI Tech Demos </h1>
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 mt-5 pt-5  lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          <article className="flex max-w-xl flex-col items-start justify-between">
+        <p className=" line-clamp-3 text-sm leading-6 text-gray-600">View and interact with tech demos meant to demonstrate use cases for generative AI technology </p>
+        <ul className='mt-2 flex flex-row flex-wrap -ml-1 '>
+          <li className='px-5 m-1 border rounded-full'>NextJS</li>
+          <li className='px-5 m-1 border rounded-full'>AWS</li>
+          <li className='px-5 m-1 border rounded-full'>Serverless Framework</li>
+          <li className='px-5 m-1 border rounded-full'>ChatGPT API</li>
+          <li className='px-5 m-1 border rounded-full'>Location API</li>
+          <li className='px-5 m-1 border rounded-full'>Tailwind CSS</li>
+          <li className='px-5 m-1 border rounded-full'>Tamagui Components</li>
+          <li className='px-5 m-1 border rounded-full'>Figma Tokens</li>
+        </ul>
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 mt-5 pt-5  lg:mx-0 lg:max-w-none lg:grid-cols-3 ">
+          <article className="flex max-w-xl flex-col items-start justify-start">
             <div className="flex items-center gap-x-4 text-xs">
               <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a> 
             </div>
@@ -24,7 +35,7 @@ export default function Home({}) {
                   Travel Landing
                 </Link>
               </h3>
-              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Get a call to vacation - to a destination based on your city(IP) or enter a location. </p>
+              <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">Get a call to vacation - to a destination based on your city(IP) or enter a location. Refresh the page to generate a new message. </p>
             </div>
             <div className="relative mt-8 flex items-center gap-x-4">
               <Image src="/headshot-nr.jpg"  width={100}
@@ -40,7 +51,7 @@ export default function Home({}) {
               </div>
             </div>
           </article>
-          <article className="flex max-w-xl flex-col items-start justify-between">
+          <article className="flex max-w-xl flex-col items-start justify-start">
             <div className="flex items-center gap-x-4 text-xs">
               <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Novelty</a>
             </div>
@@ -52,7 +63,7 @@ export default function Home({}) {
                   Generate Bucket list
                 </Link>
               </h3>
-              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Create a personalized bucket list by answering a few questions based on your personality.</p>
+              <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">Create a personalized bucket list by answering a few questions based on your personality.</p>
             </div>
             <div className="relative mt-8 flex items-center gap-x-4">
               <Image src="/headshot-nr.jpg"  width={100}
@@ -68,7 +79,7 @@ export default function Home({}) {
               </div>
             </div>
           </article>
-          <article className="flex max-w-xl flex-col items-start justify-between">
+          <article className="flex max-w-xl flex-col items-start justify-start">
             <div className="flex items-center gap-x-4 text-xs">
               <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Education</a>
             </div>
@@ -80,7 +91,8 @@ export default function Home({}) {
                   Short Teachable Children Stories
                 </Link>
               </h3>
-              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Create a short teachable story for children to learn a lesson you specify.</p>
+              <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">Generate a short teachable story for your kid to learn from. Personalize the story with their name, age and any specifics in the lesson. </p>
+   
             </div>
             <div className="relative mt-8 flex items-center gap-x-4">
               <Image src="/headshot-nr.jpg"  width={100}
