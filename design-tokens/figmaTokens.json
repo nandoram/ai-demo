@@ -8,11 +8,11 @@
   "light_fire": {
     "default": {
       "background": {
-        "value": "#f8f8f8",
+        "value": "#fff7ce",
         "type": "color"
       },
       "borderColor": {
-        "value": "#cacaca",
+        "value": "#c6cef0",
         "type": "color"
       },
       "borderColorHover": {
@@ -32,11 +32,11 @@
   "dark_fire": {
     "default": {
       "background": {
-        "value": "#021d01",
+        "value": "#440252",
         "type": "color"
       },
       "color": {
-        "value": "#bfbfbf",
+        "value": "#f2cccc",
         "type": "color"
       },
       "borderColor": {
