@@ -8,7 +8,7 @@
   "light_fire": {
     "default": {
       "background1": {
-        "value": "#f2f2f2",
+        "value": "#c74e4e",
         "type": "color"
       },
       "borderColor": {
