@@ -8,7 +8,7 @@
   "light_fire": {
     "default": {
       "background1": {
-        "value": "#fff7ce",
+        "value": "#e7e7e7",
         "type": "color"
       },
       "borderColor": {
@@ -32,7 +32,7 @@
   "dark_fire": {
     "default": {
       "background1": {
-        "value": "#440252",
+        "value": "#4e4e4e",
         "type": "color"
       },
       "color": {
