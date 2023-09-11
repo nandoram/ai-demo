@@ -7,7 +7,7 @@
   },
   "light_fire": {
     "default": {
-      "background": {
+      "background1": {
         "value": "#fff7ce",
         "type": "color"
       },
@@ -31,7 +31,7 @@
   },
   "dark_fire": {
     "default": {
-      "background": {
+      "background1": {
         "value": "#440252",
         "type": "color"
       },
