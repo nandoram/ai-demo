@@ -4,7 +4,7 @@ import LandingTemplate from '../../components/LandingTemplate';
 
 export default async function TravelLanding({}) {
   
-  const req = await fetch(`https://ipinfo.io?token=39df038d864ab5`)
+  const req = await fetch(`https://ipinfo.io?token=39df038d864ab5`, { cache: 'no-store'})
   const jsonResponse = await req.json()
   const configuration = new Configuration({
       organization: "org-dOailguhnw7ZSQFjGcgMRZec",
