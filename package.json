@@ -7,7 +7,8 @@
     "build": "TAMAGUI_TARGET=web next build",
     "start": "next start",
     "lint": "next lint",
-    "build:tokens": "node design-tokens/buildTokens.js"
+    "build:tokens": "node design-tokens/buildTokens.js",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@tamagui/config": "^1.55.2",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.27",
+    "prettier": "^3.0.3",
     "tailwindcss": "^3.3.3"
   },
   "overrides": {

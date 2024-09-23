@@ -3,7 +3,7 @@ import { tokens } from '@tamagui/themes'
 import { createFont, createTamagui } from 'tamagui'
 import mergedThemes from './themes'
 
-const themes = mergedThemes;
+const themes = mergedThemes
 
 export default createTamagui({
   themes,

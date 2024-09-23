@@ -1,7 +1,6 @@
 {
   "components": [
     {
-      "moduleName": "tamagui",
       "nameToInfo": {
         "AlertDialogOverlay": {
           "staticConfig": {
@@ -22543,13 +22542,13 @@
         "color10": "#626262",
         "color11": "#a5a5a5",
         "color12": "#fff",
-        "background": "#021d01",
+        "background": "#151515",
         "backgroundHover": "#191919",
         "backgroundPress": "#232323",
         "backgroundFocus": "#282828",
         "backgroundStrong": "#050505",
         "backgroundTransparent": "rgba(10,10,10,0)",
-        "color": "#bfbfbf",
+        "color": "#f2cccc",
         "colorHover": "#a5a5a5",
         "colorPress": "#fff",
         "colorFocus": "#570f6d",
@@ -22659,6 +22658,7 @@
         "shadowColorHover": "rgba(0,0,0,0.3)",
         "shadowColorPress": "rgba(0,0,0,0.2)",
         "shadowColorFocus": "rgba(0,0,0,0.2)",
+        "background1": "#1f1f1f",
         "id": "dark"
       },
       "dark_Button": {
@@ -35206,7 +35206,7 @@
         "colorPress": "hsl(0, 0%, 9.0%)",
         "colorFocus": "#b65454",
         "colorTransparent": "rgba(10,10,10,0)",
-        "borderColor": "#cacaca",
+        "borderColor": "#c6cef0",
         "borderColorHover": "#949494",
         "borderColorFocus": "hsl(0, 0%, 94.1%)",
         "borderColorPress": "hsl(0, 0%, 92.0%)",
@@ -35311,6 +35311,7 @@
         "shadowColorHover": "rgba(0,0,0,0.085)",
         "shadowColorPress": "rgba(0,0,0,0.04)",
         "shadowColorFocus": "rgba(0,0,0,0.04)",
+        "background1": "#f2f2f2",
         "id": "light"
       },
       "light_Button": {

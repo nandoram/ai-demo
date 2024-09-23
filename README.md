@@ -1,3 +1,8 @@
+Created to demonstrate new Generative AI capabilities working with existing technologies.
+View live demo: https://thrillworks-ai-demo-git-main-nandoram.vercel.app/
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
